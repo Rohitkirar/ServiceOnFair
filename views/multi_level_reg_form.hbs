@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        body{
+            font-family: "Montserrat";
+        }
+        section{
+            min-height:100vh;
+            width:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background-color:aliceblue;
+        }
+        .container{
+            max-width:400px;
+            width:90%;
+            padding:20px;
+            box-shadow:0px 0px 20px #00000020;
+            border-radius:8px;
+            background-color:white;
+        }
+        .step{
+            display:none;
+        }
+        .step.active{
+            display:block;
+        }
+        .form-group{
+            width:100%;
+            margin-top:20px;
+            
+        }
+        .form-group input{
+            width:96%;
+            border:1.25px solid rgba(128,128,128,0.410);
+            padding:4px;
+            font-size:18px;
+            margin-top:7px;
+            border-radius:2px;
+        }
+        button.next-btn, button.previous-btn, button.submit-btn{
+            float:right;
+            margin-top:20px;
+            padding:10px 30px;
+            border:none;
+            outline:none;
+            background-color:rgb(100,220,255);
+            font-family:"Montserrat";
+            font-size:10px;
+            cursor:pointer;
+        } 
+        button.previous-btn{
+            float:left;
+        }
+        button.submit-btn{
+            background-color:aquamarine;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <section>
+        <div class="container">
+            <form>
+                <div class="step step-1 active">
+                    <div class="form-group">
+                        <label for="firstName" >First Name</label>
+                        <input type="text" id="firstName" name="first-name" placeholder="first-name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName"> Middle Name</label>
+                        <input type="text"  id="middleName" name="middle-name" placeholder="middle-name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="last-name" placeholder="last-name" />
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+                <div class="step step-2">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" placeholder="xyz@gmail.com" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="number" id="phone" name="phone-number" placeholder="8245****19" />
+                    </div>
+                    <button type="button" class="previous-btn">Prev</button>
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+                <div class="step step-3">
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" placeholder="India" />
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="Madhya Pradesh" />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="select" />
+                    </div>
+                    <div class="form-group">
+                        <label for="postCode"> Post Code</label>
+                        <input type="text" id="postCode" name="post-code" placeholder="44**00" />
+                    </div>
+                    <button type="button" class="previous-btn">Prev</button>
+                    <button type="button" class="next-btn">Next</button>
+                </div>
+                <div class="step step-4">
+                    <div class="form-group">
+                        <label for="service">Service</label> 
+                        <input type="text" id="service" name="service" placeholder="electrician,mechanic,tour-guide etc"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" name="description" placeholder="write about your service minimum 200 words" />
+                    </div>
+                    <div class="form-group">
+                        <label for="charge">Charge Per Day</label>
+                        <input type="number" id="charge" name="charge" placeholder="charges for service" />
+                    </div>
+                    <button type="button" class="previous-btn">Prev</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        const steps =Array.from(document.querySelectorAll("form .step"));
+        const nextBtn = document.querySelectorAll("form .next-btn");
+        const prevBtn = document.querySelectorAll("form .previous-btn");
+        const form = document.querySelector("form");
+        nextBtn.forEach((button) => {
+            button.addEventListener("click" ,()=>{
+                changeStep("next");
+            });
+        });
+        prevBtn.forEach((button) => {
+            button.addEventListener("click",() => {
+                changeStep("prev") ;
+            });
+        });
+        form.addEventListener("submit" , (e) => {
+            e.preventDefault();
+            const inputs =[];
+            form.querySelectorAll("input").forEach((input)=>{
+                const{ name, value } = input;
+                inputs.push({ name, value });
+            });
+            console.log(inputs);
+            form.reset();
+        });
+
+        function changeStep(btn){
+            let index = 0 ;
+             const active = document.querySelector(".active");
+             index = steps.indexOf(active);
+             steps[index].classList.remove("active");
+             if(btn === "next" ){
+                index++;
+             }
+             else if(btn === "prev"){
+                index--;
+             }
+             steps[index].classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<script src="https://kit.fontawesome.com/66aa7c98b3.js"></script>
+<style>
+*{
+margin:0;
+padding: 0;
+box-sizing:border-box;
+}
+.container{
+height:100vh;
+margin:0 auto;
+position: relative;
+background:linear-gradient( to right , #25aae1, #4481eb , #04befe, #3f86ed) ;
+
+}
+.container .form-1{
+display : flex;
+flex-direction: column;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50% , -50%);
+background:#fff;
+width:40%;
+box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3);
+}
+.form-1 .h11 {
+text-align: center;
+margin-top: 0.7rem;
+margin-bottom: 1.5rem;
+}
+input[type="email"],
+input[type="password"] {
+border:none;
+outline: none;
+border-bottom:1px solid;
+background:none;
+margin:0.9rem 2 rem;
+font-size:1rem;
+}
+label{
+font-size: medium;
+margin:1rem;
+}
+span{
+margin:0.8rem;
+color:blue;
+cursor: pointer;
+}
+.button1{
+margin:2rem;
+margin-bottom:1.5rem;
+padding:0.5rem;
+cursor:pointer;
+border-radius:1rem;
+border:none;
+font-size:1.1rem;
+font-weight:bolder;
+color:#fff;
+background-color:#4481eb ;
+}
+#p1{
+text-align: center;
+font-weight: bolder;
+}
+.icons{
+display:flex;
+justify-content:center;
+margin-bottom:3rem;
+margin-top:0.5rem;
+}
+.icons a{
+text-decoration:none;
+font-size:1rem;
+margin:0.2rem;
+}
+.icons .fa-facebook-f{
+border-radius:50%;
+background:#5d75ab;
+color:#fff;
+padding:1rem;
+}
+.icons .fa-twitter{
+border-radius:50%;
+background:#1da1f2;
+color:white;
+padding:1rem;
+}
+.icons .fa-google{
+border-radius:50%;
+background:#ee5645;
+color:#fff;
+padding:1rem;
+}
+/* Media query */
+@media (max-width:501px){
+html{
+font-size:15px;
+}
+.container .form-1{
+width:300px;
+}
+}
+@media(min-width:501px) and (max-width:768px){
+html{
+font-size:14px;
+}
+.container .form-1{
+width:450px;
+}
+}
+</style>
+</head>
+<body>
+    
+    {{user}}
+    <br>
+    {{user.username}}
+    <br>
+    {{user.password}}
+<div class="container">
+<form class="form-1" action="/login" method="POST" >
+
+<h1 class="h11">Login</h1>
+<label for="user_email"  >Email</label>
+<input type="email" name="email" id="user_email" placeholder="   abc@gmail.com"/>
+<label for="user_password">Password</label>
+<input type="password" placeholder="    *********" id="user_password" name="password"/>
+<span>Forgot Password</span>
+<input type="submit" class="button1"  value="search" >
+
+ {{!-- <input type="text" name="search" placeholder="search here" id="search1">
+ <input type="text" name="search" placeholder="search here" id="search2">
+<input type="submit" onclick="storeValue();" value="search" id="searchbtn"> --}}
+
+<!-- sign up  -->
+
+<p id="p1">Or SignUp Using</p>
+<div class="icons">
+<a href="#" target="blank"><i class="fab fa-facebook-f"></i></a>
+<a href="#" target="blank"><i class="fab fa-twitter"></i></a>
+<a href="#" target="blank"><i class="fab fa-google"></i></a>
+</div>
+<a href="/" style=" text-decoration: none; font-weight: bolder; font-size: larger !important;"> Home</a>
+
+</form>
+</div>
+{{!-- 
+<script>
+
+
+
+function storeValue() {
+
+var username1 = document.getElementById('user_email').value;
+var password1 = document.getElementById('user_password').value;
+
+{{!-- username1 = username1.toLowerCase();
+password1 = password1.toLowerCase(); --}}
+
+
+var usernamedb = {{user.username}};
+var passworddb = {{user.password}};
+
+    if(username1 == "rk090@gmail.com" && password1 == "12345"){
+
+    open('/',);
+    }    
+
+    else{
+        alert("wrong username or password");
+    }
+    }
+    
+    {{!-- document.querySelector('name_product').addEventListener('mouseover' , 'colour=red;'); --}}
+
+    </script>
+     --}}
+
+</body>
+</html>
