@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-
-const User = mongoose.Schema({
+const registerDetails = mongoose.Schema({
     first_name : {
         type : String,
         required : true
@@ -19,14 +18,11 @@ const User = mongoose.Schema({
         required : true,
         unique: true
     },
-    password : {
-        type : String,
-        required : true
-    },
     phone_number : {
         type : Number,
         required : true,
-        unique : true
+        unique: true
+        
     },
     country : {
         type : String,
@@ -43,8 +39,20 @@ const User = mongoose.Schema({
     post_code : {
         type : Number,
         required : true
+    },
+    service : {
+        type : String,
+        required : true
+    },
+    description : {
+        type : String,
+        required : true
+    },
+    charge : {
+        type : Number,
+        required : true
     }
+
+
 });
-
-
-module.exports = mongoose.model("Users" , User);
+module.exports = mongoose.model("Register_details", registerDetails);

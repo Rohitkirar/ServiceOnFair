@@ -24,15 +24,21 @@ const hbs = require('hbs');
 // const mongo = require("mongodb");
 const mongoose = require("mongoose");
 
-const User = require("./models/user")
-const Detail = require("./models/Detail")
+//importing
+const User = require("./models/user");
+const Detail = require("./models/Detail");
+const registerDetails = require("./models/registration");
 const routes = require('./routes/main');
+
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 
 //for using public folder file 
 app.use('/static' ,express.static("public"));
-
+0
 //for using router folder
 app.use('' ,routes );
+
 
 
 //template engine
@@ -45,9 +51,10 @@ hbs.registerPartials("views/partials");
 
 //db connection
 mongoose.set('strictQuery', true);
-mongoose.connect("mongodb://localhost/mydb",(err,db)=>{
+mongoose.connect("mongodb://localhost:27017/mydb",(err,db)=>{
     if(err) throw err;
-    console.log("db connected");
+    else{ console.log("db connected");}
+    
    
     // Detail.create({
     //     brandName: "Service  On Fair",
@@ -63,11 +70,10 @@ mongoose.connect("mongodb://localhost/mydb",(err,db)=>{
     // User.create({
     //     username:"rk090@gmail.com",
     //     password: 12345
-    // })
-    
+    // })   
 })
 
-const port = 8080;
+const port = 090;
 const hostname = 'localhost';
 app.listen(port,hostname,()=>{
     console.log('server connected');

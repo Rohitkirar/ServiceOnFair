@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Registration Form</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+
+	<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			body{
+				background: skyblue;
+			}
+
+			div.main{
+				width: 500px;
+				margin: 50px auto 0px auto;
+			}
+
+			h2{
+				text-align: center;
+				padding: 20px;
+				font-family: sans-serif;
+			}
+
+			div.register{
+				background-color: rgba(0, 0, 0, 0.5);
+				width: 100%;
+				font-size: 18px;
+				border-radius: 10px;
+				border: 1px solid rgba(255,255,255,0.3);
+				box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+				color: #fff;
+			}
+
+			form#register{
+				margin: 40px;
+			}
+
+			label{
+				font-family: sans-serif;
+				font-size: 18px;
+				font-style: italic;
+			}
+
+			.inputfield{
+				width: 300px;
+				border: 1px solid #ddd;
+				border-radius: 3px;
+				outline: 0;
+				padding: 7px;
+				background-color: #fff;
+				box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3);
+			}
+            input#reset{
+				width: 200px;
+				padding: 7px;
+				font-size: 16px;
+				font-family: sans-serif;
+				font-weight: 600;
+				border: none;
+				border-radius: 3px;
+				background-color: rgba(250, 100, 0, 0.8);
+				color: #fff;
+				cursor: pointer;
+				border: 1pz solid rgba(255, 255, 255, 0.3);
+				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+			}
+            #reset:hover{
+                background-color:red;
+            }
+
+
+			input#submit{
+				width: 200px;
+				padding: 7px;
+				font-size: 16px;
+				font-family: sans-serif;
+				font-weight: 600;
+				border: none;
+				border-radius: 3px;
+				background-color: rgba(250, 100, 0, 0.8);
+				color: #fff;
+				cursor: pointer;
+				border: 1pz solid rgba(255, 255, 255, 0.3);
+				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+			}
+            #submit:hover{
+                background-color:darkcyan;
+            }
+
+
+			label,span,h2{
+				text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+			}
+	</style>
+</head>
+<body>
+
+    {{>navbar}}
+
+	<div class="main">
+		<div class="register">
+			<h2>Register For Joining Us! </h2>
+            
+			<form id="register" action="/registration_worker" method="POST">
+			<label for="fname">First Name :</label>
+			<br>
+			<input type="text" name="first_name" id="fname" class="inputfield" placeholder="Enter Your First Name">
+			<br><br>
+			<label for="lname">Last Name :</label>
+			<br>
+			<input type="text" name="last_name" id="lname" class="inputfield" placeholder="Enter Your Last Name">
+            <br><br>
+			<label for="male">Gender :</label>
+			<br>
+			<input type="radio" name="gender" id="male" value="male"/>
+			
+			<span id="male">Male</span>
+			&nbsp; &nbsp; &nbsp; &nbsp;
+			<input type="radio" name="gender" id="female" value="female" />
+			&nbsp; 
+			<span id="female">female</span>
+			<br><br>
+			<label for="email">Email :</label>
+			<br>
+			<input type="Email" name="email" id="email" class="inputfield" placeholder="Enter Your Email">
+			<br><br>
+			<label for="Phone">Phone :</label>
+			<br>
+			<input type="number" name="phone_number" id="Phone" class="inputfield" placeholder="Enter Your Phone Number">
+			<br><br>
+			<label for="Country">Country :</label>
+			<br>
+			<input type="text" name="country" id="Country" class="inputfield" placeholder="Country">
+			<br><br>
+			<label for="State">State :</label>
+			<br>
+			<input type="text" name="state" id="State" class="inputfield" placeholder="Enter Your State">
+			<br><br>
+			<label for="City">City :</label>
+			<br>
+			<input type="text" name="city" id="City" class="inputfield" placeholder="Enter Your City">
+			<br><br>
+			<label for="post">Post Code :</label>
+			<br>
+			<input type="number" name="post_code" id="post" class="inputfield" placeholder="Enter Your post Code">
+			<br><br>
+			<label for="Service">Service :</label>
+			<br>
+			<input type="text" name="service" id="Service" class="inputfield" placeholder="Enter Your Service">
+			<br><br>
+			<label for="Description">Description :</label>
+			<br>
+			<input type="text" name="description" id="Description" class="inputfield" placeholder="Enter Your Description "><br><br>
+			<label for="Charge"> Charge Per Day :</label>
+			<br>
+			<input type="number" name="charge" id="Charge" class="inputfield" placeholder="Enter Your charge">
+			
+			<br><br>
+            <input type="reset" name="reset" value="Clear" id="reset"/>
+			<input type="submit"  name="submit" value="Submit"  id="submit">
+
+			</form>
+		</div>
+	</div>
+    <br><br><br>
+
+    {{>footer}}
+
+</body>
+</html>

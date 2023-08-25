@@ -8,7 +8,8 @@
 </head>
 <body>
 	
-	{{>navbar}}
+	{{>navbar}}	
+
 
 
   	<section class="background firstsection">
@@ -17,7 +18,7 @@
   				<p class="text-big">NEED HELP WITH HOME SERVICES?</p>
   				<p class="text-small">We Connect you with the best home service professionals in your city</p>
                <div class="buttons">
-	            <button class="btn">View More Services</button>
+	            <button class="btn" onclick="redirect_service()"><a href="/service" style="color:white; text-decoration:none;">View More Services</a></button>
              	<button class="btn">watch video</button>
                </div>
   			</div>
@@ -50,11 +51,12 @@
   		    </div>
   		</div>
   	</section>
+	<br><br>
 
   	<section class="secRight">
   		<div class="paras">
   		<p class="sectionTag text-big">HOW IT WORKS </p>
-  		<p class="text-small"> 3 simple steps to Trukky freedom</p>
+  		<p class="text-small"> 3 simple steps to use this site</p>
   		</div>
   		<div class="thumbnail">
   			<img src="./static/images/p1.png" class="imgFluid">
@@ -70,9 +72,39 @@
   			<p class="h1">PAY AFTER WORK IS DONE</p>
   		</div>
   	</section>
+  	<section class="secRight">
+  		<div class="paras">
+  		<p class="sectionTag text-big">Join us as Serviceman/Worker </p>
+		<br>
+  		<p class="text-small"> 3 simple steps to join us</p>
+		<br>
+  		</div>
+  		<div class="thumbnail">
+  			<h1 class="h1" style="color:teal">Fill the Registration Form</h1>
+  			<img src="./static/images/arrow.png" class="imgFluid">
+  			<h1 class="h1" style="color:teal">Our agent will contact for verification </h1>
+  			<img src="./static/images/arrow.png" class="imgFluid">
+  			<h1 class="h1" style="color:teal">successfully verification, you will get details via sms/email</h1>
+  		</div>
+
+  		<div class="subheading">
+  			
+  			<a href="/registration_worker" style="text-decoration:none;">
+			<button style=" font-size:larger; width:20rem; height:2.5rem; background-color:teal; color:white;">
+				Proceed To Registration
+			</button>
+			</a>
+  			
+  		</div>
+		<br><br><br>
+  	</section>
 
   	{{>footer}}
 
-	<script src="./static/js/index.js"></script>
+	<script src="./static/js/index.js">
+	function redirect_service(){
+		
+	}
+	</script>
 </body>
 </html>
